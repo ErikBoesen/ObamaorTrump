@@ -1,6 +1,7 @@
 # Number of words included in each file/sample
 LENGTH = 100
 
+print('Loading raw speech content')
 with open('obama.txt') as f:
     o_raw = f.read()
 o_words = o_raw.split(' ')
@@ -11,6 +12,7 @@ t_words = t_raw.split(' ')
 f_num = 0
 while len(o_words) >= LENGTH and len(t_words) >= LENGTH:
     f_num += 1
+    print('Writing files #%d' % f_num)
     with open('obama/%d' % f_num, 'w') as f:
         for i in range(LENGTH):
             f.write(o_words.pop(0) + ' ')
